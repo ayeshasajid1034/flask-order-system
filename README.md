@@ -161,16 +161,6 @@ Add user authentication to track who performs actions:
 pip install flask-login
 ```
 
-### API Security
-Implement API authentication and rate limiting for production use.
-
-### Advanced Features
-- Order search and filtering
-- Bulk operations
-- Export functionality (CSV, PDF)
-- Email notifications
-- Order status tracking with more states
-
 ## Testing
 
 To test the application:
@@ -190,22 +180,4 @@ To test the application:
    # Test logs endpoint
    curl -X GET http://localhost:5000/api/logs | python -m json.tool
    ```
-
-## Deployment Notes
-
-For production deployment:
-
-1. **Set a proper secret key**:
-   ```python
-   app.secret_key = os.environ.get('SECRET_KEY', 'your-secret-key')
-   ```
-
-2. **Use a production database**:
-   Replace in-memory storage with PostgreSQL or MySQL
-
-3. **Environment Configuration**:
-   Use environment variables for configuration
-
-4. **WSGI Server**:
-   Use Gunicorn or uWSGI instead of Flask's development server
 
