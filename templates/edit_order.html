@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Edit Order {{ order.id }}{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Edit Order {{ order.id }}</h1>
+  <form method="POST">
+    <div class="form-group">
+      <label for="number_of_items">Number of Items:</label>
+      <input type="number" id="number_of_items" name="number_of_items" class="form-control" value="{{ order.number_of_items }}" required min="1">
+    </div>
+    <div class="form-group">
+      <label for="delivery_date">Delivery Date:</label>
+      <input type="date" id="delivery_date" name="delivery_date" class="form-control" value="{{ order.delivery_date }}" required>
+    </div>
+    <div class="form-group">
+      <label for="sender_name">Sender Name:</label>
+      <input type="text" id="sender_name" name="sender_name" class="form-control" value="{{ order.sender_name }}" required>
+    </div>
+    <div class="form-group">
+      <label for="recipient_name">Recipient Name:</label>
+      <input type="text" id="recipient_name" name="recipient_name" class="form-control" value="{{ order.recipient_name }}" required>
+    </div>
+    <div class="form-group">
+      <label for="recipient_address">Recipient Address:</label>
+      <textarea id="recipient_address" name="recipient_address" class="form-control" rows="3" required>{{ order.recipient_address }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Order</button>
+    <a href="{{ url_for('index') }}" class="btn btn-warning">Cancel</a>
+  </form>
+</div>
+{% endblock %}

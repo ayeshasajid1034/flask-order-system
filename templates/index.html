@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}All Orders{% endblock %}
+{% block content %}
+<h1>Order Management System</h1>
+{% if orders %}
+  <div class="orders-grid">
+    {% for order in orders.values() %}
+    <div class="card">
+      <h3>Order {{ order.id }}
+        <span class="status-{{ order.status.lower() }}">{{ order.status }}</span>
+      </h3>
+      <p><strong>Items:</strong> {{ order.number_of_items }}</p>
+      <p><strong>Delivery Date:</strong> {{ order.delivery_date }}</p>
+      <p><strong>Sender:</strong> {{ order.sender_name }}</p>
+      <p><strong>Recipient:</strong> {{ order.recipient_name }}</p>
+      <p><strong>Address:</strong> {{ order.recipient_address }}</p>
+      <div class="btn-group">
+        <a href="{{ url_for('edit_order', order_id=order.id) }}" class="btn btn-warning">Edit</a>
+        {% if order.status != 'Delivered' %}
+        <a href="{{ url_for('mark_delivered', order_id=order.id) }}" class="btn btn-success">Mark Delivered</a>
+        {% endif %}
+        <a href="{{ url_for('delete_order', order_id=order.id) }}" class="btn btn-danger">Delete</a>
+      </div>
+      <p style="font-size:.85em;color:#666;margin-top:10px;">Created: {{ order.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+    </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="card">
+    <p>No orders yet. <a href="{{ url_for('add_order') }}" class="btn btn-primary">Add your first order</a></p>
+  </div>
+{% endif %}
+{% endblock %}

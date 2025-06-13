@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Action Logs{% endblock %}
+{% block content %}
+<h1>Action Logs</h1>
+<div class="card">
+  <h2>All Actions ({{ logs|length }})</h2>
+  {% if logs %}
+  <table>
+    <thead>
+      <tr>
+        <th>Log ID</th>
+        <th>Action Type</th>
+        <th>Order ID</th>
+        <th>Performed By</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in logs|reverse %}
+      <tr>
+        <td>{{ log.id }}</td>
+        <td>{{ log.action_type }}</td>
+        <td>{{ log.order_id }}</td>
+        <td>{{ log.performed_by }}</td>
+        <td>{{ log.timestamp }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No action logs found.</p>
+  {% endif %}
+  <a href="{{ url_for('index') }}" class="btn btn-primary" style="margin-top:15px;">Back to Orders</a>
+</div>
+{% endblock %}
