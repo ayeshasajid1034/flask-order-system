@@ -181,3 +181,16 @@ To test the application:
    curl -X GET http://localhost:5000/api/logs | python -m json.tool
    ```
 
+### Pages Screenshots
+![image](https://github.com/user-attachments/assets/0fb3b8f1-8900-443d-afe5-4c6c6f29eb3c)
+![image](https://github.com/user-attachments/assets/9764ffea-559e-4599-8605-6ea9a567338f)
+![image](https://github.com/user-attachments/assets/331cc567-de8b-492b-bed0-8f70f2705f96)
+![image](https://github.com/user-attachments/assets/7d3f13a4-3ff8-4249-88d7-1185a460a028)
+![image](https://github.com/user-attachments/assets/ab4e0077-f874-4538-8636-0d8f38cdf196)
+![image](https://github.com/user-attachments/assets/e3d6c7e2-e138-48ba-ab77-7ef7840f54d3)
+
+
+
+
+
+
